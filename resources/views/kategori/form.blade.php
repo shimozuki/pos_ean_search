@@ -6,15 +6,33 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nama_kategori" class="col-lg-2 col-lg-offset-1 control-label">Paket</label>
+                        <label for="nama_paket" class="col-lg-2 col-lg-offset-1 control-label">Paket</label>
                         <div class="col-lg-6">
-                            <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" required autofocus>
+                            <input type="text" name="nama_paket" id="nama_paket" class="form-control" required autofocus>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="id_barang" class="col-lg-2 col-lg-offset-1 control-label">Kategori</label>
+                        <div class="col-lg-6">
+                            <select name="id_barang[]" id="id_kategori" class="form-control" required multiple>
+                                <option value="">Pilih Produk</option>
+                                @foreach ($product as $key => $item)
+                                <option value="{{ $item->id_produk }}">{{ $item->nama_produk }}</option>
+                                @endforeach
+                            </select>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama_paket" class="col-lg-2 col-lg-offset-1 control-label">Harga Paket</label>
+                        <div class="col-lg-6">
+                            <input type="text" name="harga_paket" id="nama_paket" class="form-control" required autofocus>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

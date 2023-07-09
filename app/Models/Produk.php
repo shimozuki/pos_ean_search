@@ -12,4 +12,9 @@ class Produk extends Model
     protected $table = 'produk';
     protected $primaryKey = 'id_produk';
     protected $guarded = [];
+
+    public function paket()
+    {
+        return $this->belongsToMany(Paket::class, 'paket_barang', 'barang_id', 'paket_id');
+    }
 }

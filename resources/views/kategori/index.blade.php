@@ -47,7 +47,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'nama_kategori'},
+                {data: 'nama_paket'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
         });
@@ -74,7 +74,7 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=nama_kategori]').focus();
+        $('#modal-form [name=nama_paket]').focus();
     }
 
     function editForm(url) {
@@ -84,11 +84,11 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=nama_kategori]').focus();
+        $('#modal-form [name=nama_paket]').focus();
 
         $.get(url)
             .done((response) => {
-                $('#modal-form [name=nama_kategori]').val(response.nama_kategori);
+                $('#modal-form [name=nama_paket]').val(response.nama_paket);
             })
             .fail((errors) => {
                 alert('Tidak dapat menampilkan data');

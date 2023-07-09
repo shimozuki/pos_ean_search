@@ -16,17 +16,14 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::all()->pluck('nama_kategori', 'id_kategori');
+        $kategori = Kategori::all();
 
         return view('produk.index', compact('kategori'));
     }
 
     public function data()
     {
-        $produk = Produk::leftJoin('kategori', 'kategori.id_kategori', 'produk.id_kategori')
-            ->select('produk.*', 'nama_kategori')
-            // ->orderBy('kode_produk', 'asc')
-            ->get();
+        $produk = Produk::all();
 
         return datatables()
             ->of($produk)
